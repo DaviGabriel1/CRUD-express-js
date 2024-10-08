@@ -1,22 +1,27 @@
 const {Router} = require("express");
 const router = Router();
+const atendimentoController = require("../controllers/atendimentoController")
 
 router.get("/atendimentos",(req,res) => {
-    res.send("chegou aqui, estamos listando todos os atendimentos...");
+    const resposta = atendimentoController.buscar();
+    res.send(resposta);
 });
 
 router.post("/atendimentos",(req,res) => {
-    res.send("chegou aqui! estamos criando um novo atendimento...");
+    const resposta = atendimentoController.buscar();
+    res.send(resposta);
 })
 
 router.put("/atendimentos/:id",(req,res) => {
     const {id} = req.params;
-    res.send(`chegou aqui! estamos atualizando o atendimento ${id}...`);
+    const resposta = atendimentoController.alterar(id);
+    res.send(resposta);
 })
 
 router.delete("/atendimentos/:id",(req,res) => {
     const {id} = req.params
-    res.send(`chegou aqui! estamos deletando o atendimento ${id}`);
+    const resposta = atendimentoController.deletar(id)
+    res.send(resposta);
 })
 
 module.exports = router
