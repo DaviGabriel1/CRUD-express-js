@@ -1,16 +1,17 @@
+const atendimentoModel = require("../models/atendimentoModels")
+
 class AtendimentoController{
     buscar(){
-        return "buscando atendimentos...";
+        return atendimentoModel.listar();
     }
-    criar(){
-        return "Criando atendimento..."
+    criar(novoAtendimento){
+        return atendimentoModel.criar(novoAtendimento)
     }
-    alterar(id){
-        return  `alterando atendimento número ${id}...`
+    atualizar(atendimentoAtualizado,id){
+        return atendimentoModel.atualizar(atendimentoAtualizado,id)
     }
     deletar(id){
-        return `deletando atendimento número ${id}...`
-    }
-}
+        return atendimentoModel.deletar(id)
+}}
 
 module.exports = new AtendimentoController();

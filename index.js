@@ -7,9 +7,10 @@ const router = require("./routers/index")
 const conexao = require("./infraestrutura/conexao");
 const tabelas = require("./infraestrutura/tabela");
 
+app.use(express.json()) 
+router(app,express);
 tabelas.init(conexao)
 
-router(app);
 
 app.listen(port,(err) =>{
     if(err){
